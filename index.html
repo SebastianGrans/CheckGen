@@ -1,0 +1,80 @@
+<html>
+<body style="position: relative">
+<head>
+	<link rel="stylesheet" href="style.css">
+	<!-- <script src="https://unpkg.com/jspdf@2.4.0/dist/jspdf.umd.min.js"></script>
+	<script src="https://unpkg.com/svg2pdf.js@2.2.0/dist/svg2pdf.umd.min.js"></script> -->
+	<script type="text/javascript" src="scripts.js" defer></script>
+</head>
+
+<div class="interface">
+	<div class="slider">
+		<span class="slider-label">Rows</span>
+		<input id="row_slider" class="slider-input" type="range" min="3" max="41" />
+		<span id="row_slider_output" class="slider-value">-</span>
+	</div>
+	<div class="slider">
+		<span class="slider-label">Columns</span>
+		<input id="col_slider" class="slider-input" type="range" min="3" max="41" />
+		<!-- <input id="col_number" class="slider-value" type="number" min="3" max="41" /> -->
+		<span id="col_slider_output" class="slider-value">-</span>
+	</div>
+	<div class="slider">
+		<span class="slider-label">Size</span>
+		<input id="size_slider" class="slider-input" type="range" min="5" max="40"/>
+		<span id="size_slider_output" class="slider-value">-</span>
+	</div>
+
+	<div class="spacer" style="height: 0.5em;"></div>
+	
+	<div class="slider">
+		<input type="color" id="color_picker" name="color_picker"
+           value="#000000">
+		<label for="color_picker" style="margin-left: 0.5em">Color</label>
+	</div>
+	<div class="spacer" style="height: 0.5em;"></div>
+	<div class="checkbox">
+		<input type="checkbox" id="rounded_checkbox" class="checkbox-input" name="rounded">
+		<label for="rounded">Rounded edge/corner checkers</label>
+	</div>
+	<div class="checkbox">
+		<input type="checkbox" id="marker_checkbox" class="checkbox-input"  name="marker">
+		<label for="marker">Marker</label>
+	</div>
+	<div class="checkbox">
+		<input type="checkbox" id="label_checkbox" class="checkbox-input"  name="label">
+		<label for="label">Label</label>
+	</div>
+
+	<div class="spacer" style="height: 0.5em;"></div>
+	
+	<div class="paper-spec">
+		<div class="paper-spec-input">
+			<div style="width:100%">
+				<span class="paper-spec-label">Width</span>
+				<input class="paper-spec-number" id="paper_width" type="number" min="0" step="1"/>
+			</div>
+			<div style="width:100%">
+				<span class="paper-spec-label">Height</span>
+				<input class="paper-spec-number" id="paper_height" type="number" min="0" step="1"/>
+			</div>	
+		</div>
+		<div class="paper-spec-predefined">
+			<button id="A5_preset">A5</button>
+			<button id="A4_preset">A4</button>
+			<button id="A3_preset">A3</button>
+			<button id="flip_canvas">↷</button>
+		</div>
+	</div>
+
+	<div class="spacer" style="height: 0.5em;"></div>
+
+	<button onclick="save()">Save</button>
+</div>
+
+<div id="board-wrapper">
+	<svg id="board" width="100%" height="100%" shape-rendering="auto" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg"></svg>
+</div>
+
+</body>
+</html>
