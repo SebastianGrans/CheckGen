@@ -26,6 +26,15 @@ body {
     backdrop-filter: blur(6px);
 }
 
+.bottom-row {
+    display:flex;
+    /* Direct alignment of content along horizontal axis */
+    flex-direction:row;
+    justify-content: space-between;
+    /* Tell's flexbox to center content around the non-horizontal axis (ie around the vertical axis) */
+    align-items:center;
+}
+
 .checkbox {
     /* Use flexbox for slider wrapper element */
     display:flex;

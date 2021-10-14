@@ -10,4 +10,4 @@ It's nevertheless nice to have an interactive GUI for this.
 Enjoy! 
 
 # Screenshot 
-![](screenshot.png)
+![](imgs/screenshot.png)
