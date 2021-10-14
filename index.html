@@ -9,69 +9,102 @@
 
 <div class="interface">
 	<div class="slider">
-		<span class="slider-label">Rows</span>
-		<input id="row_slider" class="slider-input" type="range" min="3" max="41" />
+		<span class="slider-label tooltip">Rows
+			<span class="tooltiptext">
+				Number of inner corners in the row direction.
+			</span>
+		</span>
+		<input id="row_slider" class="slider-input" type="range" min="2" max="41" />
 		<span id="row_slider_output" class="slider-value">-</span>
 	</div>
 	<div class="slider">
-		<span class="slider-label">Columns</span>
-		<input id="col_slider" class="slider-input" type="range" min="3" max="41" />
+		<span class="slider-label tooltip">Columns
+			<span class="tooltiptext">
+				Number of inner corners in the column direction.
+			</span>
+		</span>
+		<input id="col_slider" class="slider-input" type="range" min="2" max="41" />
 		<!-- <input id="col_number" class="slider-value" type="number" min="3" max="41" /> -->
 		<span id="col_slider_output" class="slider-value">-</span>
 	</div>
 	<div class="slider">
-		<span class="slider-label">Size</span>
+		<span class="slider-label tooltip">Size
+			<span class="tooltiptext">
+				Checker size in millimeter.
+			</span>
+		</span>
 		<input id="size_slider" class="slider-input" type="range" min="5" max="40"/>
 		<span id="size_slider_output" class="slider-value">-</span>
 	</div>
 
 	<div class="spacer" style="height: 0.5em;"></div>
 	
-	<div class="slider">
-		<input type="color" id="color_picker" name="color_picker"
-           value="#000000">
-		<label for="color_picker" style="margin-left: 0.5em">Color</label>
-	</div>
-	<div class="spacer" style="height: 0.5em;"></div>
-	<div class="checkbox">
-		<input type="checkbox" id="rounded_checkbox" class="checkbox-input" name="rounded">
-		<label for="rounded">Rounded edge/corner checkers</label>
-	</div>
-	<div class="checkbox">
-		<input type="checkbox" id="marker_checkbox" class="checkbox-input"  name="marker">
-		<label for="marker">Marker</label>
-	</div>
-	<div class="checkbox">
-		<input type="checkbox" id="label_checkbox" class="checkbox-input"  name="label">
-		<label for="label">Label</label>
+	
+	<div class="middle-row">
+		<div class="slider">
+			<label for="color_picker" style="margin-right: 0.5em">Color:</label>
+			<input type="color" id="color_picker" name="color_picker"
+			value="#000000">
+		</div>
+		<div class="checkbox">
+			<input type="checkbox" id="rounded_checkbox" class="checkbox-input" name="rounded">
+			<label for="rounded" class="tooltip">Rounded
+				<span class="tooltiptext">
+					Makes the edge and corner pieces rounded. 
+					This improves detection when using findChessboardCornersSB. 
+					See <a href="https://docs.opencv.org/4.5.3/d9/d0c/group__calib3d.html#gadc5bcb05cb21cf1e50963df26986d7c9">documentation</a>.
+				</span>
+			</label>
+		</div>
+		<div class="checkbox">
+			<input type="checkbox" id="marker_checkbox" class="checkbox-input"  name="marker">
+			<label for="marker" class="tooltip">Marker
+				<span class="tooltiptext">
+					Adds a meta array which allows for detection of chessboard corners
+					even when it is only partially visible in the image.
+					See <a href="https://docs.opencv.org/4.5.3/d9/d0c/group__calib3d.html#gadc5bcb05cb21cf1e50963df26986d7c9">documentation</a>.
+				</span>
+			</label>
+		</div>
+		<div class="checkbox">
+			<input type="checkbox" id="label_checkbox" class="checkbox-input"  name="label">
+			<label for="label" class="tooltip">Label
+				<span class="tooltiptext">
+					Adds the pattern specification to the bottom of the board.
+				</span>
+			</label>
+		</div>
 	</div>
 
 	<div class="spacer" style="height: 0.5em;"></div>
 	
 	<div class="paper-spec">
-		<div class="paper-spec-input">
-			<div style="width:100%">
-				<span class="paper-spec-label">Width</span>
+			<div class="paper-size">
+				<span class="tooltip paper-spec-text-label">Width × Height: 
+					<span class="tooltiptext">
+						Width and height in millimeter.
+					</span>
+				</span>
 				<input class="paper-spec-number" id="paper_width" type="number" min="0" step="1"/>
-			</div>
-			<div style="width:100%">
-				<span class="paper-spec-label">Height</span>
+				<span style="margin: auto 0.2em;">×</span>
 				<input class="paper-spec-number" id="paper_height" type="number" min="0" step="1"/>
-			</div>	
-		</div>
-		<div class="paper-spec-predefined">
-			<button id="A5_preset">A5</button>
-			<button id="A4_preset">A4</button>
-			<button id="A3_preset">A3</button>
-			<button id="flip_canvas">↷</button>
-		</div>
+			</div>
+			
+			<div class="paper-presets">
+				<span class="paper-spec-text-label">Presets:</span>
+				<button id="A5_preset">A5</button>
+				<button id="A4_preset">A4</button>
+				<button id="A3_preset">A3</button>
+				<button id="flip_canvas">↷</button>
+			</div>
+			
 	</div>
 
 	<div class="spacer" style="height: 0.5em;"></div>
 	<div class="bottom-row">
-		<button onclick="save()">Save</button>
+		<button onclick="save()" style="padding: 0.5em 0.5em;">Save</button>
 		<a href="https://github.com/SebastianGrans/CheckGen">
-			<img border="0" alt="GitHub" src="imgs/mark.png">
+			<img alt="GitHub" src="imgs/mark.png">
 		</a>
 	</div>
 	

@@ -3,7 +3,7 @@ body {
     color: whitesmoke; */
     color:rgb(255, 255, 255);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 15pt;
+    font-size: 14pt;
 }
 
 #board-wrapper {
@@ -12,9 +12,6 @@ body {
     justify-content: center;
 }
 
-#board {
-    /* border: 1px solid black; */
-}
 
 .interface {
     position: absolute;
@@ -25,6 +22,16 @@ body {
     margin: 1em;
     backdrop-filter: blur(6px);
 }
+
+.middle-row {
+    display:flex;
+    /* Direct alignment of content along horizontal axis */
+    flex-direction:row;
+    justify-content: space-between;
+    /* Tell's flexbox to center content around the non-horizontal axis (ie around the vertical axis) */
+    align-items:center;
+}
+
 
 .bottom-row {
     display:flex;
@@ -82,36 +89,109 @@ body {
     flex-direction:row;
     /* Tell's flexbox to center content around the non-horizontal axis (ie around the vertical axis) */
     align-items:center;
+    justify-content: space-between;
+    column-gap: 1em;
 }
 
-.paper-spec-input{
+.paper-spec-text-label {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 0.2em;
+}
+
+.paper-size{
     /* Use flexbox for slider wrapper element */
     display:flex;
-    /* Direct alignment of content along horizontal axis */
-    flex-direction:column;
-    flex: 0.40;
-    /* Tell's flexbox to center content around the non-horizontal axis (ie around the vertical axis) */
-    align-items:center;
-}
-
-.paper-spec-label {
-    display: inline-block; 
-    width: 75px;
-}
-
-
-.paper-spec-number {
-    width: 3em;
-    font-size: 1em;
-}
-
-.paper-spec-predefined {
-    /* Use flexbox for slider wrapper element */
-    display:flex;
-    flex: 1;
     /* Direct alignment of content along horizontal axis */
     flex-direction:row;
-    column-gap: 0.5em;
+    /* flex: 0.40; */
     /* Tell's flexbox to center content around the non-horizontal axis (ie around the vertical axis) */
-    justify-content: center;
+    align-items:center;
+    
+}
+
+.paper-spec-number {
+    width: 3.5em;
+    font-size: 1em;
+}
+input[type=number]::-webkit-inner-spin-button {
+    /* Hide the incr/decr buttons */
+    -webkit-appearance: none;
+}
+input.paper-spec-number[type=number] {
+    color: white;
+    font-size: 0.99em;
+    background: none;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(104, 104, 104);
+    border-radius: 0.2em;
+    padding: 0.15em;
+    text-align: center;
+}
+
+.paper-presets {
+    /* Use flexbox for slider wrapper element */
+    flex: 1;
+    display:flex;
+    /* Direct alignment of content along horizontal axis */
+    flex-direction:row;
+    justify-content: space-between;
+    /* Tell's flexbox to center content around the non-horizontal axis (ie around the vertical axis) */
+    /* justify-content: center; */
+}
+
+input[type=color] {
+    background: none;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(104, 104, 104);
+    border-radius: 0.2em;
+}
+
+button {
+    color: white;
+    font-size: 0.99em;
+    background: #4375fb;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(104, 104, 104);
+    border-radius: 0.2em;
+}
+
+button:hover {
+    background: #1a57ff;
+}
+
+button:active {
+    background: #7398ff;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    text-decoration-color: rgb(226, 226, 226);;
+}
+  
+  /* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 30em;
+    background-color: #6b6b6bb7;
+    color: #fff;
+    /* text-align: center; */
+    padding: 0.5em 0.5em;
+    border-radius: 0.2em;
+    backdrop-filter: blur(6px); /* This doesn't work for some reason... */
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+  
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
 }

@@ -268,8 +268,8 @@ var A4_preset_button = document.getElementById('A4_preset')
 var A3_preset_button = document.getElementById('A3_preset')
 var flip_canvas_button = document.getElementById('flip_canvas')
 
-row_slider.value = rows;
-col_slider.value = cols;
+row_slider.value = rows - 1;
+col_slider.value = cols -1 ;
 size_slider.value = checker_size;
 rounded_checkbox.checked = rounded;
 marker_checkbox.checked = marker;
@@ -281,8 +281,8 @@ var row_slider_output = document.getElementById("row_slider_output");
 var col_slider_output = document.getElementById("col_slider_output");
 var size_slider_output = document.getElementById("size_slider_output");
 
-row_slider_output.innerHTML = rows;
-col_slider_output.innerHTML = cols;
+row_slider_output.innerHTML = rows - 1;
+col_slider_output.innerHTML = cols - 1;
 size_slider_output.innerHTML = checker_size;
 
 
@@ -291,7 +291,7 @@ draw_board();
 row_slider.oninput = function() {
     // console.log("Changing number of rows")
     row_slider_output.innerHTML = this.value;
-    rows = this.value;
+    rows = parseInt(this.value) + 1;
     draw_board()
 };
 
@@ -299,7 +299,7 @@ col_slider.oninput = function() {
     // console.log("Changing number of columns")
     col_slider_output.innerHTML = this.value;
     // col_number.value = this.value;
-    cols = this.value;
+    cols = parseInt(this.value) + 1;
     draw_board();
 };
 
